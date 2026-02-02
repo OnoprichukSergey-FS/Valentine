@@ -1,0 +1,328 @@
+:root {
+  --bg1: #ffb8d4;
+  --bg2: #ffd6e7;
+  --ink: #171717;
+  --muted: rgba(0, 0, 0, 0.55);
+  --glass: rgba(255, 255, 255, 0.55);
+  --glass2: rgba(255, 255, 255, 0.35);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  --pink: #ff3c86;
+  --pink2: #ff77b3;
+  --blue: #4ed6ff;
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  color: var(--ink);
+  overflow-x: hidden;
+
+  background: radial-gradient(
+      1200px 700px at 15% 15%,
+      rgba(78, 214, 255, 0.25),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 650px at 85% 20%,
+      rgba(255, 60, 134, 0.28),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+
+/* subtle floating dots */
+.bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.25) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 65% 35%,
+      rgba(255, 255, 255, 0.22) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 30% 80%,
+      rgba(255, 255, 255, 0.18) 0 2px,
+      transparent 3px
+    );
+  filter: blur(0.4px);
+}
+
+.wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 26px;
+}
+
+.card {
+  width: min(860px, 92vw);
+  border-radius: var(--radius);
+  padding: 18px 18px 14px;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(180deg, var(--glass), var(--glass2));
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(
+      200px 180px at 20% 20%,
+      rgba(255, 60, 134, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      260px 220px at 80% 30%,
+      rgba(78, 214, 255, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      220px 180px at 40% 90%,
+      rgba(255, 255, 255, 0.22),
+      transparent 55%
+    );
+  transform: rotate(-3deg);
+  z-index: 0;
+}
+
+.topRow {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 6px 6px;
+}
+
+.badge {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tinyBtn {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.65);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* HEART centered near the top */
+.topHeart {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.heartIcon {
+  width: 58px;
+  height: 58px;
+  position: relative;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, var(--pink), var(--pink2));
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(255, 60, 134, 0.25),
+    0 0 22px rgba(255, 60, 134, 0.22);
+  animation: heartFloat 2.8s ease-in-out infinite;
+}
+
+.heartIcon::before,
+.heartIcon::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heartIcon::before {
+  left: -29px;
+  top: 0;
+}
+
+.heartIcon::after {
+  left: 0;
+  top: -29px;
+}
+
+/* subtle sparkle shine */
+.heartIcon::marker {
+  content: "";
+}
+.heartIcon::selection {
+  background: transparent;
+}
+
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) translateY(-6px) scale(1.03);
+  }
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  margin: 10px 0 6px;
+  text-align: center;
+  font-size: clamp(28px, 3.6vw, 46px);
+  letter-spacing: -0.02em;
+}
+
+.name {
+  font-weight: 900;
+  text-transform: capitalize;
+  background: linear-gradient(90deg, var(--pink), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.playground {
+  position: relative;
+  z-index: 2;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 46px;
+  margin: 6px 0 2px;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 900;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.yes {
+  background: linear-gradient(90deg, var(--pink), var(--pink2));
+  color: white;
+  box-shadow: 0 14px 30px rgba(255, 60, 134, 0.25);
+}
+
+.no {
+  position: absolute;
+  left: calc(50% + 120px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.hint {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.success {
+  position: relative;
+  z-index: 2;
+  margin-top: 14px;
+  text-align: center;
+  padding: 14px 12px 10px;
+}
+
+.yay {
+  font-size: 38px;
+  margin: 6px 0 6px;
+}
+
+.loveLine {
+  margin: 0 auto 12px;
+  max-width: 60ch;
+  color: rgba(0, 0, 0, 0.72);
+  font-weight: 650;
+}
+
+.photo {
+  width: min(420px, 82vw);
+  border-radius: 16px;
+  border: 6px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.hidden {
+  display: none;
+}
+
+/* FX canvases */
+.fx {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}

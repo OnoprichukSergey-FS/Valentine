@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will you be my valentine?</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- soft background layer -->
+    <div class="bg" aria-hidden="true"></div>
+
+    <main class="wrap">
+      <section class="card" id="card">
+        <div class="topRow">
+          <div class="badge">💘 Valentine Protocol Activated</div>
+
+          <button
+            class="tinyBtn"
+            id="toggleVibe"
+            aria-pressed="true"
+            title="Toggle extra effects"
+          >
+            ✨ Vibes: ON
+          </button>
+        </div>
+
+        <!-- HEART ICON (center top) -->
+        <div class="topHeart" aria-hidden="true">
+          <div class="heartIcon"></div>
+        </div>
+
+        <h1 class="title" id="title">
+          <span class="name" id="name">dani</span>, will you be my valentine?
+        </h1>
+
+        <p class="subtitle" id="subtitle">
+          Choose wisely… this page has ✨ feelings ✨
+        </p>
+
+        <div class="playground" id="playground">
+          <button class="btn yes" id="yesBtn">Yes 💖</button>
+          <button class="btn no" id="noBtn">No</button>
+        </div>
+
+        <p class="hint" id="hint">“No” seems a bit shy 😈</p>
+
+        <!-- Success state -->
+        <div class="success hidden" id="success">
+          <h2 class="yay">YAY!! 🎉💖</h2>
+          <p class="loveLine" id="loveLine">
+            You just made my whole week. Officially obsessed with you.
+          </p>
+
+          <!-- Put a photo/gif in the same folder named yay.jpg -->
+          <img
+            class="photo"
+            src="yay.jpg"
+            alt="Our moment"
+            onerror="this.style.display='none'"
+          />
+
+          <div class="actions">
+            <button class="btn secondary" id="replayBtn">
+              Replay Confetti
+            </button>
+            <button class="btn secondary" id="copyBtn">
+              Copy a Cute Message
+            </button>
+          </div>
+        </div>
+
+        <!-- FX canvases -->
+        <canvas class="fx hidden" id="confetti"></canvas>
+        <canvas class="fx hidden" id="sparkles"></canvas>
+
+        <footer class="footer">made with 💗 & chaos</footer>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
