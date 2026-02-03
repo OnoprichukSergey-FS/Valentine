@@ -8,74 +8,62 @@
   </head>
 
   <body>
-    <!-- soft background layer -->
     <div class="bg" aria-hidden="true"></div>
 
     <main class="wrap">
       <section class="card" id="card">
-        <div class="topRow">
-          <div class="badge">💘 Valentine Protocol Activated</div>
-
-          <button
-            class="tinyBtn"
-            id="toggleVibe"
-            aria-pressed="true"
-            title="Toggle extra effects"
-          >
-            ✨ Vibes: ON
-          </button>
-        </div>
-
-        <!-- HEART ICON (center top) -->
+        <!-- Top heart -->
         <div class="topHeart" aria-hidden="true">
           <div class="heartIcon"></div>
         </div>
 
-        <h1 class="title" id="title">
-          <span class="name" id="name">dani</span>, will you be my valentine?
-        </h1>
+        <!-- CONTENT (question state) -->
+        <div class="panel" id="askPanel">
+          <h1 class="title">
+            <span class="name">Dani</span>, will you be my valentine?
+          </h1>
 
-        <p class="subtitle" id="subtitle">
-          Choose wisely… this page has ✨ feelings ✨
-        </p>
+          <p class="subtitle">I have a feeling you’re going to say yes.</p>
 
-        <div class="playground" id="playground">
-          <button class="btn yes" id="yesBtn">Yes 💖</button>
-          <button class="btn no" id="noBtn">No</button>
+          <div class="playground" id="playground">
+            <button class="btn yes" id="yesBtn">Yes</button>
+            <button class="btn no" id="noBtn">No</button>
+          </div>
+
+          <p class="hint" id="hint">Be gentle… I’m sensitive 🥺</p>
         </div>
 
-        <p class="hint" id="hint">“No” seems a bit shy 😈</p>
+        <!-- SUCCESS (reveal state) -->
+        <div class="panel success hidden" id="successPanel">
+          <div class="successInner">
+            <div class="successTag">You said yes 💖</div>
+            <h2 class="yay">YAY.</h2>
+            <p class="loveLine" id="loveLine">You just made my whole week.</p>
 
-        <!-- Success state -->
-        <div class="success hidden" id="success">
-          <h2 class="yay">YAY!! 🎉💖</h2>
-          <p class="loveLine" id="loveLine">
-            You just made my whole week. Officially obsessed with you.
-          </p>
+            <!-- Put your image/gif as yay.jpg in the folder (or change name here) -->
+            <div class="mediaFrame">
+              <img
+                class="photo"
+                src="yay.jpg"
+                alt="Celebration"
+                onerror="this.style.display='none'"
+              />
+            </div>
 
-          <!-- Put a photo/gif in the same folder named yay.jpg -->
-          <img
-            class="photo"
-            src="yay.jpg"
-            alt="Our moment"
-            onerror="this.style.display='none'"
-          />
+            <p class="mini">I can’t wait to celebrate with you.</p>
 
-          <div class="actions">
-            <button class="btn secondary" id="replayBtn">
-              Replay Confetti
-            </button>
-            <button class="btn secondary" id="copyBtn">
-              Copy a Cute Message
-            </button>
+            <div class="actions">
+              <button class="btn ghost" id="replayBtn">Replay confetti</button>
+              <button class="btn ghost" id="copyBtn">Copy a message</button>
+            </div>
           </div>
         </div>
 
-        <!-- FX canvases -->
+        <!-- Effects -->
         <canvas class="fx hidden" id="confetti"></canvas>
         <canvas class="fx hidden" id="sparkles"></canvas>
 
-        <footer class="footer">made with 💗 & chaos</footer>
+        <footer class="footer">made with 💗</footer>
       </section>
     </main>
 
