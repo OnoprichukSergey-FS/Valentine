@@ -48,7 +48,15 @@ function moveNoButton() {
   ];
   hint.textContent = lines[Math.min(dodges, lines.length - 1)];
 
-  const noTexts = ["No", "nope", "pls", "stop", "fine…", "help"];
+  const noTexts = [
+    "No",
+    "nope",
+    "pls stop",
+    "💨",
+    "AAAA",
+    "not today",
+    "fine…",
+  ];
   noBtn.textContent = noTexts[Math.min(dodges, noTexts.length - 1)];
 }
 
