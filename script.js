@@ -54,8 +54,13 @@ function moveNoButton() {
     "pls stop",
     "💨",
     "AAAA",
+    "AAAA",
+    "AAAA",
+    "AAAA",
+    "AAAA",
+    "AAAA",
     "not today",
-    "fine…",
+    "NO!!…",
   ];
   noBtn.textContent = noTexts[Math.min(dodges, noTexts.length - 1)];
 }
